@@ -22,6 +22,7 @@ export const VideoPlayer = ({
     if (videoRef.current) {
       try {
         await videoRef.current.play()
+        videoRef.current.muted = false
       } catch (e) {
         // do nothing
       }
@@ -40,7 +41,9 @@ export const VideoPlayer = ({
 
   useEffect(() => {
     if (isVisible) {
-      startVideoOnMouseMove()
+      setTimeout(() => {
+        startVideoOnMouseMove()
+      }, 1000)
     } else {
       stopVideoOnMove()
     }
