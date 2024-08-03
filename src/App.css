@@ -6,3 +6,34 @@
   box-sizing: border-box;
   background-color: rgb(73, 73, 73);
 }
+
+.play-video-btn {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  animation: bounce 1s infinite inifite linear;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.4);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  75% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}

@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import "./App.css"
 
 import { LoadingScreen } from "./screens/loading-sceen"
 import { VideoPlayer } from "./components/video-player"
 import { FullScreenBox } from "./components/full-screen-box"
 import video from "./kaczki.mp4"
+import { FaArrowCircleDown } from "react-icons/fa"
 
 export type State = "loader" | "heart" | "crackedHeart" | "button" | "video"
 
@@ -37,7 +38,14 @@ function App() {
         state={state}
         setState={setState}
       />
-      {state === "button" && <button onClick={playVideo}> puść</button>}
+      {state === "button" && (
+        <button
+          className="play-video-btn"
+          onClick={playVideo}
+        >
+          <FaArrowCircleDown />
+        </button>
+      )}
       {state === "video" &&
         videos.map((v, idx) => {
           if (idx <= currentVideo) {
