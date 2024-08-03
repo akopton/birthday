@@ -7,7 +7,13 @@ import { FullScreenBox } from "./components/full-screen-box"
 import video from "./kaczki.mp4"
 import { FaArrowCircleDown } from "react-icons/fa"
 
-export type State = "loader" | "heart" | "crackedHeart" | "button" | "video"
+export type State =
+  | "loader"
+  | "heart"
+  | "crackedHeart"
+  | "button"
+  | "video"
+  | ""
 
 function App() {
   const [state, setState] = useState<State>("loader")
@@ -38,16 +44,29 @@ function App() {
         state={state}
         setState={setState}
       />
-      <button
-        className="play-video-btn"
-        onClick={playVideo}
-        style={{
-          opacity: state !== "button" ? "0" : "1",
-          transition: "1s ease",
-        }}
-      >
-        <FaArrowCircleDown />
-      </button>
+      {(state === "crackedHeart" || state === "button") && (
+        <button
+          className="play-video-btn"
+          onClick={playVideo}
+          style={{
+            opacity: state !== "button" ? "0" : "1",
+            transition: "1s ease",
+          }}
+        >
+          <p
+            style={{
+              whiteSpace: "nowrap",
+              fontSize: "1.2rem",
+            }}
+          >
+            KLIKNIJ I ZOBACZ CO SIĘ STANIE
+          </p>
+          <FaArrowCircleDown
+            className="animated"
+            fontSize="4rem"
+          />
+        </button>
+      )}
       {state === "video" &&
         videos.map((v, idx) => {
           if (idx <= currentVideo) {

@@ -17,34 +17,42 @@ export const LoadingScreen = ({
   useEffect(() => {
     if (animationState >= 100) {
       setTimeout(() => {
+        setState("")
+      }, 500)
+      setTimeout(() => {
         setState("heart")
-      }, 2000)
+      }, 1500)
     }
   }, [animationState])
 
   return (
     <FullScreenBox>
-      {state === "loader" && (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: state !== "loader" ? "0" : "100%",
-            transition: "ease-in-out 1s",
-          }}
-        >
-          <Loader
-            hidden={state !== "loader"}
-            loadingState={animationState}
-            handleLoading={setAnimationState}
-          />
-        </div>
-      )}
-      {state !== "loader" && (
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%,-50%)",
+          width: state !== "loader" ? "0" : "100%",
+          transition: "width ease-in-out 1s",
+        }}
+      >
+        <Loader
+          hidden={false}
+          loadingState={animationState}
+          handleLoading={setAnimationState}
+        />
+      </div>
+      {(state === "heart" ||
+        state === "crackedHeart" ||
+        state === "button" ||
+        state === "video") && (
         <div
           style={{
             position: "relative",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
             height: "100%",
             padding: "0",
             overflow: "hidden",
