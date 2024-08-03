@@ -38,15 +38,15 @@ export const VideoPlayer = ({
     }
   }, [videoRef.current])
 
-  useEffect(() => {
-    if (isVisible) {
-      setTimeout(() => {
-        startVideoOnMouseMove()
-      }, 1000)
-    } else {
-      stopVideoOnMove()
-    }
-  }, [isVisible, startVideoOnMouseMove, stopVideoOnMove])
+  // useEffect(() => {
+  //   if (isVisible) {
+  //     setTimeout(() => {
+  //       startVideoOnMouseMove()
+  //     }, 1000)
+  //   } else {
+  //     stopVideoOnMove()
+  //   }
+  // }, [isVisible, startVideoOnMouseMove, stopVideoOnMove])
 
   useEffect(() => {
     if (videoRef.current) {
@@ -82,7 +82,7 @@ export const VideoPlayer = ({
       }}
       onClick={() => {
         if (videoRef.current) {
-          videoRef.current.muted = false
+          videoRef.current.play()
         }
       }}
     >
@@ -90,8 +90,8 @@ export const VideoPlayer = ({
         ref={videoRef}
         autoPlay={false}
         preload="none"
-        playsInline
-        muted
+        // playsInline
+        // muted
         style={{
           objectFit: "contain",
           display: "block",
