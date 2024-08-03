@@ -18,35 +18,33 @@ export const VideoPlayer = ({
     false
   )
 
-  // const startVideoOnMouseMove = useCallback(async () => {
-  //   if (videoRef.current) {
-  //     try {
-  //       await videoRef.current.play()
-  //     } catch (e) {
-  //       // do nothing
-  //     }
-  //   }
-  // }, [videoRef.current])
+  const startVideoOnMouseMove = useCallback(async () => {
+    if (videoRef.current) {
+      try {
+        await videoRef.current.play()
+      } catch (e) {
+        // do nothing
+      }
+    }
+  }, [videoRef.current])
 
-  // const stopVideoOnMove = useCallback(() => {
-  //   if (videoRef.current) {
-  //     try {
-  //       videoRef.current.pause()
-  //     } catch (e) {
-  //       // do nothing
-  //     }
-  //   }
-  // }, [videoRef.current])
+  const stopVideoOnMove = useCallback(() => {
+    if (videoRef.current) {
+      try {
+        videoRef.current.pause()
+      } catch (e) {
+        // do nothing
+      }
+    }
+  }, [videoRef.current])
 
-  // useEffect(() => {
-  //   if (isVisible) {
-  //     setTimeout(() => {
-  //       startVideoOnMouseMove()
-  //     }, 1000)
-  //   } else {
-  //     stopVideoOnMove()
-  //   }
-  // }, [isVisible, startVideoOnMouseMove, stopVideoOnMove])
+  useEffect(() => {
+    if (isVisible) {
+      startVideoOnMouseMove()
+    } else {
+      stopVideoOnMove()
+    }
+  }, [isVisible, startVideoOnMouseMove, stopVideoOnMove])
 
   // useEffect(() => {
   //   if (videoRef.current) {
