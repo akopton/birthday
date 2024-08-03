@@ -60,9 +60,21 @@ export const VideoPlayer = ({
     }
   }, [videoRef.current])
 
+  useEffect(() => {
+    if (targetRef.current && videoRef.current) {
+      if (
+        videoRef.current.currentTime > 0 &&
+        !videoRef.current.ended &&
+        !videoRef.current.paused
+      ) {
+        targetRef.current.click()
+      }
+    }
+  }, [videoRef.current, targetRef.current])
+
   return (
     <span
-      ref={targetRef as any}
+      ref={targetRef}
       style={{
         position: "relative",
         minHeight: "50px",
