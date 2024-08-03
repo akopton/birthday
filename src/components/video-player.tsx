@@ -68,6 +68,11 @@ export const VideoPlayer = ({
         minHeight: "50px",
         height: "100%",
       }}
+      onClick={() => {
+        if (videoRef.current) {
+          videoRef.current.muted = false
+        }
+      }}
     >
       <video
         ref={videoRef}
