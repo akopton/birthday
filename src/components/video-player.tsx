@@ -83,6 +83,7 @@ export const VideoPlayer = ({
       onClick={async () => {
         if (videoRef.current) {
           await videoRef.current.play()
+          videoRef.current.muted = false
         }
       }}
     >
@@ -90,7 +91,7 @@ export const VideoPlayer = ({
         ref={videoRef}
         autoPlay={false}
         playsInline
-        // muted
+        muted
         style={{
           objectFit: "contain",
           display: "block",
