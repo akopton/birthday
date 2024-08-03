@@ -70,34 +70,25 @@ export const VideoPlayer = ({
   //   }
   // }, [videoRef.current, targetRef.current])
 
+  const loadVideoCb = useCallback(() => {
+    if (videoRef.current) {
+      const video = videoRef.current
+      video.controls = false // or true
+      video.muted = true
+      video.autoplay = true
+
+      setTimeout(() => {
+        const promise = video?.play()
+        if (promise?.then) {
+          promise.then(() => {}).catch(() => {})
+        }
+      }, 0)
+    }
+  }, [])
+
   useEffect(() => {
-    const video = videoRef.current
-
-    const handleCanPlayThrough = () => {
-      if (video) {
-        setTimeout(() => {
-          video.muted = false
-          video.play().catch((error) => {
-            console.log("Error trying to play the video:", error)
-          })
-        }, 100) // Small delay to ensure autoplay policy is met
-        video.removeEventListener("canplaythrough", handleCanPlayThrough)
-      }
-    }
-
-    if (video) {
-      video.addEventListener("canplaythrough", handleCanPlayThrough)
-      video.play().catch((error) => {
-        console.log("Autoplay was prevented:", error)
-      })
-    }
-
-    return () => {
-      if (video) {
-        video.removeEventListener("canplaythrough", handleCanPlayThrough)
-      }
-    }
-  }, [videoRef.current])
+    loadVideoCb()
+  }, [loadVideoCb])
 
   return (
     <span
