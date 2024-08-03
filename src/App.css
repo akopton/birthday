@@ -8,12 +8,16 @@
 }
 
 .play-video-btn {
+  background: none;
+  border: none;
+  outline: none;
+  color: pink;
   position: fixed;
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2rem;
-  animation: bounce 1s infinite inifite linear;
+  animation: bounce 1s infinite ease-in-out;
 }
 
 @keyframes bounce {

@@ -38,14 +38,16 @@ function App() {
         state={state}
         setState={setState}
       />
-      {state === "button" && (
-        <button
-          className="play-video-btn"
-          onClick={playVideo}
-        >
-          <FaArrowCircleDown />
-        </button>
-      )}
+      <button
+        className="play-video-btn"
+        onClick={playVideo}
+        style={{
+          opacity: state !== "button" ? "0" : "1",
+          transition: "1s ease",
+        }}
+      >
+        <FaArrowCircleDown />
+      </button>
       {state === "video" &&
         videos.map((v, idx) => {
           if (idx <= currentVideo) {
