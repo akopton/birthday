@@ -89,7 +89,6 @@ export const VideoPlayer = ({
       <video
         ref={videoRef}
         autoPlay={false}
-        preload="none"
         playsInline
         // muted
         style={{
