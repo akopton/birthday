@@ -1,0 +1,12 @@
+.cracked-heart {
+  animation: crack 1.5s 1 linear;
+}
+
+@keyframes crack {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

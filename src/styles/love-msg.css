@@ -1,0 +1,30 @@
+.message {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.first-message {
+  animation: show-msg 1.5s 1 ease-in-out;
+}
+
+.second-message {
+  animation: show-msg 2s 1 ease-in-out;
+  animation-delay: 2s;
+}
+
+@keyframes show-msg {
+  0% {
+    opacity: 0;
+    bottom: 60%;
+  }
+  50% {
+    opacity: 1;
+    bottom: 70%;
+  }
+  100% {
+    opacity: 0;
+    bottom: 70%;
+  }
+}
