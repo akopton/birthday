@@ -70,6 +70,24 @@ export const VideoPlayer = ({
   //   }
   // }, [videoRef.current, targetRef.current])
 
+  useEffect(() => {
+    const video = videoRef.current
+
+    const handlePlay = () => {
+      if (video) {
+        video.muted = false
+        video.removeEventListener("play", handlePlay)
+      }
+    }
+
+    if (video) {
+      video.addEventListener("play", handlePlay)
+      video.play().catch((error) => {
+        console.log("Autoplay was prevented:", error)
+      })
+    }
+  }, [])
+
   return (
     <span
       ref={targetRef}
