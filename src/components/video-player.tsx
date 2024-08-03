@@ -73,41 +73,41 @@ export const VideoPlayer = ({
   // }, [videoRef.current, targetRef.current])
 
   return (
-    <span
-      ref={targetRef}
+    // <span
+    //   ref={targetRef}
+    //   style={{
+    //     position: "relative",
+    //     minHeight: "50px",
+    //     height: "100%",
+    //   }}
+    //   onClick={async () => {
+    //     if (videoRef.current) {
+    //       await videoRef.current.play()
+    //       videoRef.current.muted = false
+    //     }
+    //   }}
+    // >
+    <video
+      ref={videoRef}
+      autoPlay={false}
+      preload="none"
+      playsInline
+      muted
       style={{
-        position: "relative",
-        minHeight: "50px",
+        objectFit: "contain",
+        display: "block",
+        width: "100%",
         height: "100%",
       }}
-      onClick={async () => {
-        if (videoRef.current) {
-          await videoRef.current.play()
-          videoRef.current.muted = false
-        }
-      }}
+      onEnded={onEnded}
     >
-      <video
-        ref={videoRef}
-        autoPlay={false}
-        preload="none"
-        playsInline
-        muted
-        style={{
-          objectFit: "contain",
-          display: "block",
-          width: "100%",
-          height: "100%",
-        }}
-        onEnded={onEnded}
-      >
-        <source
-          src={video}
-          type="video/mp4"
-        />
-        Your browser does not support the video tag. Please try viewing this
-        page in a modern browser.
-      </video>
-    </span>
+      <source
+        src={video}
+        type="video/mp4"
+      />
+      Your browser does not support the video tag. Please try viewing this page
+      in a modern browser.
+    </video>
+    // </span>
   )
 }
