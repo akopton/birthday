@@ -1,0 +1,19 @@
+.duck-loader {
+  height: 100%;
+  width: 100%;
+  min-height: 50px;
+  min-width: 50px;
+  max-height: 50px;
+  max-width: 50px;
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  right: -60px;
+}
+
+.duck-container {
+  z-index: 500;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import lottie from "lottie-web"
-
+import "../styles/duck.css"
 import duckAnimation from "../animations/duckAnimation.json"
 
 const Duck = () => {
