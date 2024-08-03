@@ -14,7 +14,7 @@ export const FullScreenBox = ({ children }: { children?: React.ReactNode }) => {
       ref={ref}
       style={{
         height: "100vh",
-        width: "100vw",
+        width: "100svw",
         maxWidth: "100svw",
         maxHeight: "100svh",
         background: "rgb(73, 73, 73)",

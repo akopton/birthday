@@ -4,6 +4,7 @@ import "./App.css"
 import { LoadingScreen } from "./screens/loading-sceen"
 import { VideoPlayer } from "./components/video-player"
 import { FullScreenBox } from "./components/full-screen-box"
+import video from "./kaczki.mp4"
 
 export type State = "loader" | "heart" | "crackedHeart" | "video"
 
@@ -24,17 +25,29 @@ function App() {
     }
   }, [state])
 
+  const [currentVideo, setCurrentVideo] = useState(0)
+  const videos = [video, video]
+  const playNext = () => setCurrentVideo((prev) => prev + 1)
+
   return (
     <div className="App">
       <LoadingScreen
         state={state}
         setState={setState}
       />
-      {state === "video" && (
-        <FullScreenBox>
-          <VideoPlayer />
-        </FullScreenBox>
-      )}
+      {state === "video" &&
+        videos.map((v, idx) => {
+          if (idx <= currentVideo) {
+            return (
+              <FullScreenBox key={idx}>
+                <VideoPlayer
+                  video={v}
+                  onEnded={playNext}
+                />
+              </FullScreenBox>
+            )
+          }
+        })}
     </div>
   )
 }
