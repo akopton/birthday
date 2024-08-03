@@ -18,25 +18,25 @@ export const VideoPlayer = ({
     false
   )
 
-  const startVideoOnMouseMove = useCallback(async () => {
-    if (videoRef.current) {
-      try {
-        await videoRef.current.play()
-      } catch (e) {
-        // do nothing
-      }
-    }
-  }, [videoRef.current])
+  // const startVideoOnMouseMove = useCallback(async () => {
+  //   if (videoRef.current) {
+  //     try {
+  //       await videoRef.current.play()
+  //     } catch (e) {
+  //       // do nothing
+  //     }
+  //   }
+  // }, [videoRef.current])
 
-  const stopVideoOnMove = useCallback(() => {
-    if (videoRef.current) {
-      try {
-        videoRef.current.pause()
-      } catch (e) {
-        // do nothing
-      }
-    }
-  }, [videoRef.current])
+  // const stopVideoOnMove = useCallback(() => {
+  //   if (videoRef.current) {
+  //     try {
+  //       videoRef.current.pause()
+  //     } catch (e) {
+  //       // do nothing
+  //     }
+  //   }
+  // }, [videoRef.current])
 
   // useEffect(() => {
   //   if (isVisible) {
@@ -48,29 +48,29 @@ export const VideoPlayer = ({
   //   }
   // }, [isVisible, startVideoOnMouseMove, stopVideoOnMove])
 
-  useEffect(() => {
-    if (videoRef.current) {
-      if (
-        videoRef.current.currentTime > 0 &&
-        !videoRef.current.ended &&
-        !videoRef.current.paused
-      ) {
-        videoRef.current.muted = false
-      }
-    }
-  }, [videoRef.current])
+  // useEffect(() => {
+  //   if (videoRef.current) {
+  //     if (
+  //       videoRef.current.currentTime > 0 &&
+  //       !videoRef.current.ended &&
+  //       !videoRef.current.paused
+  //     ) {
+  //       videoRef.current.muted = false
+  //     }
+  //   }
+  // }, [videoRef.current])
 
-  useEffect(() => {
-    if (targetRef.current && videoRef.current) {
-      if (
-        videoRef.current.currentTime > 0 &&
-        !videoRef.current.ended &&
-        !videoRef.current.paused
-      ) {
-        targetRef.current.click()
-      }
-    }
-  }, [videoRef.current, targetRef.current])
+  // useEffect(() => {
+  //   if (targetRef.current && videoRef.current) {
+  //     if (
+  //       videoRef.current.currentTime > 0 &&
+  //       !videoRef.current.ended &&
+  //       !videoRef.current.paused
+  //     ) {
+  //       targetRef.current.click()
+  //     }
+  //   }
+  // }, [videoRef.current, targetRef.current])
 
   return (
     <span
@@ -80,9 +80,9 @@ export const VideoPlayer = ({
         minHeight: "50px",
         height: "100%",
       }}
-      onClick={() => {
+      onClick={async () => {
         if (videoRef.current) {
-          videoRef.current.play()
+          await videoRef.current.play()
         }
       }}
     >
@@ -90,7 +90,7 @@ export const VideoPlayer = ({
         ref={videoRef}
         autoPlay={false}
         preload="none"
-        // playsInline
+        playsInline
         // muted
         style={{
           objectFit: "contain",
