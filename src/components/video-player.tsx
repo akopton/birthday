@@ -22,7 +22,6 @@ export const VideoPlayer = ({
     if (videoRef.current) {
       try {
         await videoRef.current.play()
-        videoRef.current.muted = false
       } catch (e) {
         // do nothing
       }
@@ -48,6 +47,18 @@ export const VideoPlayer = ({
       stopVideoOnMove()
     }
   }, [isVisible, startVideoOnMouseMove, stopVideoOnMove])
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (
+        videoRef.current.currentTime > 0 &&
+        !videoRef.current.ended &&
+        !videoRef.current.paused
+      ) {
+        videoRef.current.muted = false
+      }
+    }
+  }, [videoRef.current])
 
   return (
     <span
