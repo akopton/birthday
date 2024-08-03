@@ -22,6 +22,7 @@ export const VideoPlayer = ({
     if (videoRef.current) {
       try {
         await videoRef.current.play()
+        videoRef.current.muted = false
       } catch (e) {
         // do nothing
       }
@@ -70,29 +71,29 @@ export const VideoPlayer = ({
   //   }
   // }, [videoRef.current, targetRef.current])
 
-  const loadVideoCb = useCallback(() => {
-    if (videoRef.current) {
-      const video = videoRef.current
-      video.controls = false // or true
-      video.muted = true
-      video.autoplay = true
+  // const loadVideoCb = useCallback(() => {
+  //   if (videoRef.current) {
+  //     const video = videoRef.current
+  //     video.controls = false // or true
+  //     video.muted = true
+  //     video.autoplay = true
 
-      setTimeout(() => {
-        const promise = video?.play()
-        if (promise?.then) {
-          promise
-            .then(() => {
-              video.muted = false
-            })
-            .catch(() => {})
-        }
-      }, 0)
-    }
-  }, [])
+  //     setTimeout(() => {
+  //       const promise = video?.play()
+  //       if (promise?.then) {
+  //         promise
+  //           .then(() => {
+  //             video.muted = false
+  //           })
+  //           .catch(() => {})
+  //       }
+  //     }, 0)
+  //   }
+  // }, [])
 
-  useEffect(() => {
-    loadVideoCb()
-  }, [loadVideoCb])
+  // useEffect(() => {
+  //   loadVideoCb()
+  // }, [loadVideoCb])
 
   return (
     <span

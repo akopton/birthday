@@ -6,7 +6,7 @@ import { VideoPlayer } from "./components/video-player"
 import { FullScreenBox } from "./components/full-screen-box"
 import video from "./kaczki.mp4"
 
-export type State = "loader" | "heart" | "crackedHeart" | "video"
+export type State = "loader" | "heart" | "crackedHeart" | "button" | "video"
 
 function App() {
   const [state, setState] = useState<State>("loader")
@@ -20,7 +20,7 @@ function App() {
 
     if (state === "crackedHeart") {
       setTimeout(() => {
-        setState("video")
+        setState("button")
       }, 3500)
     }
   }, [state])
@@ -29,12 +29,15 @@ function App() {
   const videos = [video, video]
   const playNext = () => setCurrentVideo((prev) => prev + 1)
 
+  const playVideo = () => setState("video")
+
   return (
     <div className="App">
       <LoadingScreen
         state={state}
         setState={setState}
       />
+      {state === "button" && <button onClick={playVideo}> puść</button>}
       {state === "video" &&
         videos.map((v, idx) => {
           if (idx <= currentVideo) {
