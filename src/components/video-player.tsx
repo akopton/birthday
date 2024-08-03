@@ -73,20 +73,31 @@ export const VideoPlayer = ({
   useEffect(() => {
     const video = videoRef.current
 
-    const handlePlay = () => {
+    const handleCanPlayThrough = () => {
       if (video) {
-        video.muted = false
-        video.removeEventListener("play", handlePlay)
+        setTimeout(() => {
+          video.muted = false
+          video.play().catch((error) => {
+            console.log("Error trying to play the video:", error)
+          })
+        }, 100) // Small delay to ensure autoplay policy is met
+        video.removeEventListener("canplaythrough", handleCanPlayThrough)
       }
     }
 
     if (video) {
-      video.addEventListener("play", handlePlay)
+      video.addEventListener("canplaythrough", handleCanPlayThrough)
       video.play().catch((error) => {
         console.log("Autoplay was prevented:", error)
       })
     }
-  }, [])
+
+    return () => {
+      if (video) {
+        video.removeEventListener("canplaythrough", handleCanPlayThrough)
+      }
+    }
+  }, [videoRef.current])
 
   return (
     <span
