@@ -80,7 +80,11 @@ export const VideoPlayer = ({
       setTimeout(() => {
         const promise = video?.play()
         if (promise?.then) {
-          promise.then(() => {}).catch(() => {})
+          promise
+            .then(() => {
+              video.muted = false
+            })
+            .catch(() => {})
         }
       }, 0)
     }
