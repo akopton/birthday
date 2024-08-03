@@ -3,11 +3,11 @@ import video from "../kaczki.mp4"
 
 export const VideoPlayer = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
-  //   useEffect(() => {
-  //     if (videoRef.current) {
-  //       videoRef.current.play()
-  //     }
-  //   }, [videoRef.current])
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play()
+    }
+  }, [videoRef.current])
 
   return (
     <video
