@@ -60,6 +60,7 @@ export const VideoPlayer = ({
         autoPlay={false}
         preload="none"
         playsInline
+        muted
         style={{
           objectFit: "contain",
           display: "block",
