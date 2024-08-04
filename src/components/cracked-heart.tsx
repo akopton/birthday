@@ -1,7 +1,8 @@
 import lottie from "lottie-web"
 import heartCrackAnimation from "../animations/heartCrackAnimation.json"
-import { useEffect, useRef } from "react"
+import React, { SetStateAction, useEffect, useRef } from "react"
 import "../styles/cracked-heart.css"
+import { State } from "../App"
 
 export const CrackedHeart = () => {
   const anime = useRef(null)
@@ -10,7 +11,7 @@ export const CrackedHeart = () => {
       lottie.loadAnimation({
         container: anime.current,
         renderer: "svg",
-        loop: false,
+        loop: 1,
         autoplay: true,
         animationData: heartCrackAnimation,
         rendererSettings: {

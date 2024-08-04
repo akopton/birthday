@@ -6,11 +6,13 @@ import { VideoPlayer } from "./components/video-player"
 import { FullScreenBox } from "./components/full-screen-box"
 import video from "./kaczki.mp4"
 import { FaArrowCircleDown } from "react-icons/fa"
+import { Fireworks } from "./components/fireworks"
 
 export type State =
   | "loader"
   | "heart"
   | "crackedHeart"
+  | "fireworks"
   | "button"
   | "video"
   | ""
@@ -25,11 +27,11 @@ function App() {
       }, 1500)
     }
 
-    if (state === "crackedHeart") {
-      setTimeout(() => {
-        setState("button")
-      }, 3500)
-    }
+    // if (state === "fireworks") {
+    //   setTimeout(() => {
+    //     setState("button")
+    //   }, 3500)
+    // }
   }, [state])
 
   const [currentVideo, setCurrentVideo] = useState(0)
@@ -44,7 +46,8 @@ function App() {
         state={state}
         setState={setState}
       />
-      {(state === "crackedHeart" || state === "button") && (
+
+      {(state === "fireworks" || state === "button") && (
         <button
           className="play-video-btn"
           onClick={playVideo}

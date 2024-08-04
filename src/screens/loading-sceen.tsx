@@ -4,6 +4,7 @@ import { CrackedHeart } from "../components/cracked-heart"
 import { Loader } from "../components/loader"
 import { LoveMsg } from "../components/love-msg"
 import { FullScreenBox } from "../components/full-screen-box"
+import { Fireworks } from "../components/fireworks"
 
 export const LoadingScreen = ({
   state,
@@ -25,6 +26,20 @@ export const LoadingScreen = ({
     }
   }, [animationState])
 
+  const [hideHeart, setHideHeart] = useState(false)
+
+  useEffect(() => {
+    if (state === "crackedHeart") {
+      setTimeout(() => {
+        setHideHeart(true)
+      }, 2500)
+
+      setTimeout(() => {
+        setState("fireworks")
+      }, 3500)
+    }
+  }, [state])
+
   return (
     <FullScreenBox>
       <div
@@ -43,10 +58,7 @@ export const LoadingScreen = ({
           handleLoading={setAnimationState}
         />
       </div>
-      {(state === "heart" ||
-        state === "crackedHeart" ||
-        state === "button" ||
-        state === "video") && (
+      {(state === "heart" || state === "crackedHeart") && (
         <div
           style={{
             position: "relative",
@@ -59,12 +71,15 @@ export const LoadingScreen = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            opacity: hideHeart ? "0" : "1",
+            transition: "opacity 1s ease-in-out",
           }}
         >
           <CrackedHeart />
           <LoveMsg hidden={state !== "crackedHeart"} />
         </div>
       )}
+      {state === "fireworks" && <Fireworks />}
     </FullScreenBox>
   )
 }
