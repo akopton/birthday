@@ -19,6 +19,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0;
+  animation: show-btn 1s 1 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-btn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .animated {

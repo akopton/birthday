@@ -4,15 +4,18 @@ import "./App.css"
 import { LoadingScreen } from "./screens/loading-sceen"
 import { VideoPlayer } from "./components/video-player"
 import { FullScreenBox } from "./components/full-screen-box"
-import video from "./kaczki.mp4"
+import video from "./assets/kaczki.mp4"
 import { FaArrowCircleDown } from "react-icons/fa"
 import { Fireworks } from "./components/fireworks"
+import { LongMessage } from "./components/long-message"
+import { NextStepBtn } from "./components/next-step-btn"
 
 export type State =
   | "loader"
   | "heart"
   | "crackedHeart"
   | "fireworks"
+  | "long-message"
   | "button"
   | "video"
   | ""
@@ -47,28 +50,14 @@ function App() {
         setState={setState}
       />
 
-      {(state === "fireworks" || state === "button") && (
-        <button
-          className="play-video-btn"
+      {(state === "long-message" ||
+        state === "button" ||
+        state === "video") && <LongMessage onEnd={() => setState("button")} />}
+      {state === "button" && (
+        <NextStepBtn
           onClick={playVideo}
-          style={{
-            opacity: state !== "button" ? "0" : "1",
-            transition: "1s ease",
-          }}
-        >
-          <p
-            style={{
-              whiteSpace: "nowrap",
-              fontSize: "1.2rem",
-            }}
-          >
-            KLIKNIJ I ZOBACZ CO SIĘ STANIE
-          </p>
-          <FaArrowCircleDown
-            className="animated"
-            fontSize="4rem"
-          />
-        </button>
+          state={state}
+        />
       )}
       {state === "video" &&
         videos.map((v, idx) => {

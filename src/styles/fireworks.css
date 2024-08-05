@@ -6,3 +6,51 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.wish-message {
+  opacity: 0;
+  text-align: center;
+  white-space: nowrap;
+  transform: translate(0, 0);
+  color: white;
+}
+
+@keyframes appear-left {
+  0% {
+    opacity: 0;
+    font-size: 1rem;
+    transform: translate(0, 0);
+  }
+
+  50% {
+    opacity: 1;
+    font-size: 1.2rem;
+    transform: translate(-20%, -20%);
+  }
+
+  100% {
+    opacity: 0;
+    font-size: 1.2rem;
+    transform: translate(-20%, -20%);
+  }
+}
+
+@keyframes appear-right {
+  0% {
+    opacity: 0;
+    font-size: 1rem;
+    transform: translate(0, 0);
+  }
+
+  50% {
+    opacity: 1;
+    font-size: 1.2rem;
+    transform: translate(20%, 20%);
+  }
+
+  100% {
+    opacity: 0;
+    font-size: 1.2rem;
+    transform: translate(20%, 20%);
+  }
+}

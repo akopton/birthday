@@ -79,7 +79,7 @@ export const LoadingScreen = ({
           <LoveMsg hidden={state !== "crackedHeart"} />
         </div>
       )}
-      {state === "fireworks" && <Fireworks />}
+      {state === "fireworks" && <Fireworks setState={setState} />}
     </FullScreenBox>
   )
 }
