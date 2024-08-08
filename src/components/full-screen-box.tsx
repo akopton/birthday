@@ -1,6 +1,12 @@
-import { useEffect, useRef } from "react"
+import { CSSProperties, useEffect, useRef } from "react"
 
-export const FullScreenBox = ({ children }: { children?: React.ReactNode }) => {
+export const FullScreenBox = ({
+  children,
+  style,
+}: {
+  children?: React.ReactNode
+  style?: CSSProperties
+}) => {
   const ref = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -18,6 +24,7 @@ export const FullScreenBox = ({ children }: { children?: React.ReactNode }) => {
         maxWidth: "100svw",
         maxHeight: "100svh",
         background: "rgb(73, 73, 73)",
+        ...style,
       }}
     >
       {children}

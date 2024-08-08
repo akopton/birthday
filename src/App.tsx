@@ -5,10 +5,10 @@ import { LoadingScreen } from "./screens/loading-sceen"
 import { VideoPlayer } from "./components/video-player"
 import { FullScreenBox } from "./components/full-screen-box"
 import video from "./assets/kaczki.mp4"
-import { FaArrowCircleDown } from "react-icons/fa"
-import { Fireworks } from "./components/fireworks"
 import { LongMessage } from "./components/long-message"
 import { NextStepBtn } from "./components/next-step-btn"
+import { Quiz } from "./components/quiz"
+import { BeforeQuiz } from "./components/before-quiz"
 
 export type State =
   | "loader"
@@ -18,6 +18,11 @@ export type State =
   | "long-message"
   | "button"
   | "video"
+  | "quiz"
+  | "beforequiz"
+  | "beforequiz2"
+  | "beforequiz3"
+  | "beforequiz4"
   | ""
 
 function App() {
@@ -29,16 +34,10 @@ function App() {
         setState("crackedHeart")
       }, 1500)
     }
-
-    // if (state === "fireworks") {
-    //   setTimeout(() => {
-    //     setState("button")
-    //   }, 3500)
-    // }
   }, [state])
 
   const [currentVideo, setCurrentVideo] = useState(0)
-  const videos = [video, video]
+  const videos = [video]
   const playNext = () => setCurrentVideo((prev) => prev + 1)
 
   const playVideo = () => setState("video")
@@ -60,18 +59,36 @@ function App() {
         />
       )}
       {state === "video" &&
-        videos.map((v, idx) => {
+        videos.map((v, idx, arr) => {
           if (idx <= currentVideo) {
             return (
               <FullScreenBox key={idx}>
                 <VideoPlayer
                   video={v}
-                  onEnded={playNext}
+                  onEnded={
+                    idx === arr.length - 1
+                      ? () => setState("beforequiz")
+                      : () => playNext()
+                  }
                 />
               </FullScreenBox>
             )
           }
         })}
+      {(state === "beforequiz" || state === "quiz") && (
+        <FullScreenBox
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            color: "pink",
+            padding: "20px",
+            gap: "30px",
+          }}
+        >
+          <BeforeQuiz onEnd={() => setState("quiz")} />
+        </FullScreenBox>
+      )}
+      {state === "quiz" && <Quiz />}
     </div>
   )
 }

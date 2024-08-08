@@ -8,12 +8,12 @@ export const LongMessage = ({ onEnd }: { onEnd: () => void }) => {
   const firstMessages: { text: string; timeout: number }[] = [
     { text: "JESZCZE WIĘCEJ PRZYGÓD,", timeout: 100 },
     { text: "PODRÓŻY, KONCERTÓW,", timeout: 200 },
-    { text: "WSPÓLNYCH WSCHODÓW I ZACHODÓW.", timeout: 1000 },
+    { text: "WSPÓLNYCH WSCHODÓW I ZACHODÓW!", timeout: 1000 },
   ]
   const secondMessages: { text: string; timeout: number }[] = [
     { text: "TEGO WSZYSTKIEGO,", timeout: 500 },
     { text: "W DNIU TWOICH URODZIN,", timeout: 200 },
-    { text: "CHCIAŁBYM CI ŻYCZYĆ JA - TWÓJ FAFROK.", timeout: 1000 },
+    { text: "CHCIAŁBYM CI ŻYCZYĆ JA - TWÓJ FAFROK!", timeout: 1000 },
     { text: "I NIE TYLKO...", timeout: 0 },
   ]
 
@@ -40,6 +40,9 @@ export const LongMessage = ({ onEnd }: { onEnd: () => void }) => {
                 }
                 time={idx < arr.length ? 80 : 60}
                 timeout={msg.timeout}
+                style={{
+                  marginTop: msg.timeout === 0 ? "50px" : "0",
+                }}
                 key={idx}
               />
             )

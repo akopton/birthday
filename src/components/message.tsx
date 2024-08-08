@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react"
+import { CSSProperties, useEffect, useState } from "react"
+import "../styles/long-message.css"
 
 export const DynamicText = (props: {
   text: string
-  onEnd: () => void
-  time: number
-  timeout: number
   isCurrent: boolean
+  onEnd?: () => void
+  time?: number
+  timeout?: number
+  style?: CSSProperties
 }) => {
-  const { timeout, text, onEnd, time, isCurrent } = props
+  const { timeout, text, onEnd, time, isCurrent, style } = props
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
@@ -19,13 +21,13 @@ export const DynamicText = (props: {
         }
         return prev + 1
       })
-    }, time)
+    }, time || 50)
 
     return () => clearInterval(interval)
   }, [])
 
   useEffect(() => {
-    if (currentIndex === text.length) {
+    if (currentIndex === text.length && onEnd) {
       setTimeout(() => {
         onEnd()
       }, timeout)
@@ -38,9 +40,7 @@ export const DynamicText = (props: {
   return (
     <span
       className="dynamic-text"
-      style={{
-        marginTop: timeout === 0 ? "50px" : "",
-      }}
+      style={style}
     >
       {currentLetter}
       {isCurrent && (

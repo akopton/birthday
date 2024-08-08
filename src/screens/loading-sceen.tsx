@@ -49,7 +49,8 @@ export const LoadingScreen = ({
           left: "50%",
           transform: "translate(-50%,-50%)",
           width: state !== "loader" ? "0" : "100%",
-          transition: "width ease-in-out 1s",
+          opacity: state !== "loader" ? "0" : "1",
+          transition: "ease-in-out 1s",
         }}
       >
         <Loader
