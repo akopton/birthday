@@ -32,7 +32,7 @@ export const Quiz = () => {
       isError: false,
     },
     2: {
-      question: "3. Mokre pozwala żyć, suche może zabić.",
+      question: "3. Mokra pozwala żyć, sucha może zabić.",
       answer: "",
       isCorrect: false,
       isError: false,
