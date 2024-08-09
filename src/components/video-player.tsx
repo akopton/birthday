@@ -47,54 +47,6 @@ export const VideoPlayer = ({
     }
   }, [isVisible, startVideoOnMouseMove, stopVideoOnMove])
 
-  // useEffect(() => {
-  //   if (videoRef.current) {
-  //     if (
-  //       videoRef.current.currentTime > 0 &&
-  //       !videoRef.current.ended &&
-  //       !videoRef.current.paused
-  //     ) {
-  //       videoRef.current.muted = false
-  //     }
-  //   }
-  // }, [videoRef.current])
-
-  // useEffect(() => {
-  //   if (targetRef.current && videoRef.current) {
-  //     if (
-  //       videoRef.current.currentTime > 0 &&
-  //       !videoRef.current.ended &&
-  //       !videoRef.current.paused
-  //     ) {
-  //       targetRef.current.click()
-  //     }
-  //   }
-  // }, [videoRef.current, targetRef.current])
-
-  // const loadVideoCb = useCallback(() => {
-  //   if (videoRef.current) {
-  //     const video = videoRef.current
-  //     video.controls = false // or true
-  //     video.muted = true
-  //     video.autoplay = true
-
-  //     setTimeout(() => {
-  //       const promise = video?.play()
-  //       if (promise?.then) {
-  //         promise
-  //           .then(() => {
-  //             video.muted = false
-  //           })
-  //           .catch(() => {})
-  //       }
-  //     }, 0)
-  //   }
-  // }, [])
-
-  // useEffect(() => {
-  //   loadVideoCb()
-  // }, [loadVideoCb])
-
   return (
     <span
       ref={targetRef}
@@ -103,11 +55,6 @@ export const VideoPlayer = ({
         minHeight: "50px",
         height: "100%",
       }}
-      // onClick={async () => {
-      //   if (videoRef.current) {
-      //     await videoRef.current.play()
-      //   }
-      // }}
     >
       <video
         ref={videoRef}

@@ -67,7 +67,11 @@ function App() {
                   video={v}
                   onEnded={
                     idx === arr.length - 1
-                      ? () => setState("beforequiz")
+                      ? () => {
+                          setTimeout(() => {
+                            setState("beforequiz")
+                          }, 1000)
+                        }
                       : () => playNext()
                   }
                 />

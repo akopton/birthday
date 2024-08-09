@@ -147,7 +147,7 @@ export const Quiz = () => {
       >
         {showMessage && (
           <DynamicText
-            text="Brawo! Na wszystkie pytania odpowiedziałaś dobrze!"
+            text="Brawo! Na wszystkie pytania odpowiedziałaś prawidłowo!"
             isCurrent={showMessage && !showCode}
             onEnd={() => setShowCode(true)}
             time={60}
