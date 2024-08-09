@@ -26,7 +26,7 @@ export const Quiz = () => {
       isError: false,
     },
     1: {
-      question: "2. Ile w naszym domu znajduje się ptaków?",
+      question: "2. Ile ptaków znajduje się w naszym domu?",
       answer: "",
       isCorrect: false,
       isError: false,

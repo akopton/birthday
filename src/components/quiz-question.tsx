@@ -34,7 +34,7 @@ export const QuizQuestion = ({
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "10px",
-        fontSize: "1.2rem",
+        fontSize: "1.15rem",
       }}
     >
       <DynamicText
@@ -55,9 +55,9 @@ export const QuizQuestion = ({
               outline: "none",
               border: "2px solid pink",
               borderRadius: "8px",
-              fontSize: "1.2rem",
+              fontSize: "1.15rem",
               color: "white",
-              padding: "8px",
+              padding: "4px 8px",
             }}
             value={answer}
             onChange={onChange}
@@ -71,12 +71,12 @@ export const QuizQuestion = ({
           >
             <button
               style={{
-                fontSize: "1.2rem",
+                fontSize: "1.15rem",
                 color: "black",
                 background: "white",
                 border: "2px solid white",
                 borderRadius: "8px",
-                padding: "4px 12px",
+                padding: "2px 8px",
                 margin: "0",
               }}
               onClick={checkAnswer}
