@@ -7,6 +7,7 @@ export const Quiz = () => {
   const [showMessage, setShowMessage] = useState(false)
   const [showCode, setShowCode] = useState(false)
   const [showCode2, setShowCode2] = useState(false)
+  const [showHint, setShowHint] = useState(false)
 
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [questions, setQuestions] = useState<{
@@ -97,9 +98,10 @@ export const Quiz = () => {
     >
       <h2
         style={{
-          width: " 100%",
+          width: "100%",
           textAlign: "center",
           color: "pink",
+          margin: "0",
         }}
       >
         ROZWIĄŻ ZAGADKĘ
@@ -169,9 +171,9 @@ export const Quiz = () => {
             />
             {showCode2 && (
               <DynamicText
-                text="591"
-                isCurrent={showCode2}
-                onEnd={() => {}}
+                text="571"
+                isCurrent={showCode2 && !showHint}
+                onEnd={() => setShowHint(true)}
                 time={1000}
                 timeout={0}
                 style={{
@@ -180,6 +182,15 @@ export const Quiz = () => {
               />
             )}
           </div>
+        )}
+        {showHint && (
+          <DynamicText
+            text="Podpowiedź: zajrzyj w głąb."
+            isCurrent={showHint}
+            onEnd={() => setShowHint(true)}
+            time={80}
+            timeout={0}
+          />
         )}
       </div>
     </FullScreenBox>
