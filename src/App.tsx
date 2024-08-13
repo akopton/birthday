@@ -4,11 +4,14 @@ import "./App.css"
 import { LoadingScreen } from "./screens/loading-sceen"
 import { VideoPlayer } from "./components/video-player"
 import { FullScreenBox } from "./components/full-screen-box"
-import video from "./assets/kaczki.mp4"
 import { LongMessage } from "./components/long-message"
 import { NextStepBtn } from "./components/next-step-btn"
 import { Quiz } from "./components/quiz"
 import { BeforeQuiz } from "./components/before-quiz"
+import video from "./assets/kaczki.mp4"
+import szymonsabkaVid from "./assets/szymonsabka.mp4"
+import agataVid from "./assets/agata.mp4"
+import kocikVid from "./assets/kocik.mp4"
 
 export type State =
   | "loader"
@@ -37,7 +40,7 @@ function App() {
   }, [state])
 
   const [currentVideo, setCurrentVideo] = useState(0)
-  const videos = [video]
+  const videos = [szymonsabkaVid, kocikVid, agataVid]
   const playNext = () => setCurrentVideo((prev) => prev + 1)
 
   const playVideo = () => setState("video")

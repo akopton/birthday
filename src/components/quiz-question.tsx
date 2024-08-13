@@ -25,7 +25,7 @@ export const QuizQuestion = ({
 
   useEffect(() => {
     if (ref.current) ref.current.focus()
-  }, [ref.current])
+  }, [ref])
 
   return (
     <label
