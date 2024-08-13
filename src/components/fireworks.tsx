@@ -13,10 +13,10 @@ export const Fireworks = ({
   const positions = [
     { top: "8%", left: "45%", text: "ZDRÓWKA" },
     { top: "25%", left: "60%", text: "POMYŚLNOŚCI" },
-    { top: "20%", left: "10%", text: "SAMYCH WSPANIAŁYCH CHWIL" },
+    { top: "20%", left: "0%", text: "SAMYCH WSPANIAŁYCH CHWIL" },
     { top: "15%", left: "48%", text: "RADOŚCI" },
     { top: "8%", left: "42%", text: "SZCZĘŚCIA" },
-    { top: "25%", left: "55%", text: "SPEŁNIENIA MARZEŃ" },
+    { top: "25%", left: "50%", text: "SPEŁNIENIA MARZEŃ" },
     { top: "20%", left: "13%", text: "DURZO PIENIONSZKUF" },
     { top: "15%", left: "45%", text: "DUŻO PIESKÓW" },
   ]

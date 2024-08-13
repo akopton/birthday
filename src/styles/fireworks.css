@@ -24,13 +24,13 @@
 
   50% {
     opacity: 1;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     transform: translate(-20%, -20%);
   }
 
   100% {
     opacity: 0;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     transform: translate(-20%, -20%);
   }
 }
@@ -44,13 +44,13 @@
 
   50% {
     opacity: 1;
-    font-size: 1.2rem;
-    transform: translate(20%, 20%);
+    font-size: 1.5rem;
+    transform: translate(10%, -20%);
   }
 
   100% {
     opacity: 0;
-    font-size: 1.2rem;
-    transform: translate(20%, 20%);
+    font-size: 1.5rem;
+    transform: translate(10%, -20%);
   }
 }
