@@ -8,10 +8,11 @@ import { LongMessage } from "./components/long-message"
 import { NextStepBtn } from "./components/next-step-btn"
 import { Quiz } from "./components/quiz"
 import { BeforeQuiz } from "./components/before-quiz"
-import video from "./assets/kaczki.mp4"
 import szymonsabkaVid from "./assets/szymonsabka.mp4"
 import agataVid from "./assets/agata.mp4"
 import kocikVid from "./assets/kocik.mp4"
+import kalawojtekVid from "./assets/kalawojtek.mp4"
+import paweldaria from "./assets/paweldaria.mp4"
 
 export type State =
   | "loader"
@@ -40,7 +41,7 @@ function App() {
   }, [state])
 
   const [currentVideo, setCurrentVideo] = useState(0)
-  const videos = [szymonsabkaVid, kocikVid, agataVid]
+  const videos = [szymonsabkaVid, kocikVid, agataVid, kalawojtekVid, paweldaria]
   const playNext = () => setCurrentVideo((prev) => prev + 1)
 
   const playVideo = () => setState("video")
