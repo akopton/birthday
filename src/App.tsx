@@ -15,6 +15,7 @@ import kalawojtekVid from "./assets/kalawojtek.mp4"
 import paweldaria from "./assets/paweldaria.mp4"
 import tomekmarta from "./assets/tomekmartamp.mp4"
 import maciekwika from "./assets/maciekwika.mp4"
+import kamilmartyna from "./assets/kamilmartyna.mp4"
 
 export type State =
   | "loader"
@@ -49,11 +50,9 @@ function App() {
     paweldaria,
     agataVid,
     kalawojtekVid,
+    kamilmartyna,
     tomekmarta,
     maciekwika,
-    // robert aneta,
-    // maciek wika,
-    // kamil martyna
   ]
 
   const playNext = () => setCurrentVideo((prev) => prev + 1)
