@@ -13,6 +13,7 @@ import agataVid from "./assets/agata.mp4"
 import kocikVid from "./assets/kocik.mp4"
 import kalawojtekVid from "./assets/kalawojtek.mp4"
 import paweldaria from "./assets/paweldaria.mp4"
+import tomekmarta from "./assets/tomekmartamp.mp4"
 
 export type State =
   | "loader"
@@ -41,7 +42,15 @@ function App() {
   }, [state])
 
   const [currentVideo, setCurrentVideo] = useState(0)
-  const videos = [szymonsabkaVid, kocikVid, agataVid, kalawojtekVid, paweldaria]
+  const videos = [
+    szymonsabkaVid,
+    paweldaria,
+    kocikVid,
+    agataVid,
+    kalawojtekVid,
+    tomekmarta,
+  ]
+
   const playNext = () => setCurrentVideo((prev) => prev + 1)
 
   const playVideo = () => setState("video")
