@@ -14,6 +14,7 @@ import kocikVid from "./assets/kocik.mp4"
 import kalawojtekVid from "./assets/kalawojtek.mp4"
 import paweldaria from "./assets/paweldaria.mp4"
 import tomekmarta from "./assets/tomekmartamp.mp4"
+import maciekwika from "./assets/maciekwika.mp4"
 
 export type State =
   | "loader"
@@ -44,11 +45,15 @@ function App() {
   const [currentVideo, setCurrentVideo] = useState(0)
   const videos = [
     szymonsabkaVid,
-    paweldaria,
     kocikVid,
+    paweldaria,
     agataVid,
     kalawojtekVid,
     tomekmarta,
+    maciekwika,
+    // robert aneta,
+    // maciek wika,
+    // kamil martyna
   ]
 
   const playNext = () => setCurrentVideo((prev) => prev + 1)
