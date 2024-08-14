@@ -13,11 +13,11 @@ export const Loader = (props: {
 
   useEffect(() => {
     const animationBreakpoints = [
-      { breakpoint: 27, timeout: 100 },
-      { breakpoint: 43, timeout: 100 },
-      { breakpoint: 58, timeout: 100 },
-      { breakpoint: 77, timeout: 100 },
-      { breakpoint: 99, timeout: 100 },
+      { breakpoint: 27, timeout: 3500 },
+      { breakpoint: 43, timeout: 500 },
+      { breakpoint: 58, timeout: 1000 },
+      { breakpoint: 77, timeout: 300 },
+      { breakpoint: 99, timeout: 5500 },
       { breakpoint: 100, timeout: 0 },
     ]
     animate(handleLoading, animationBreakpoints)
